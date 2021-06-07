@@ -14,8 +14,7 @@
 	<div th:replace="common/header :: header_fragment"></div>
 	<div id="contents">
 		<h2>Personal Infomation List</h2>
-		<table class="uk-table">
-		<caption class="center">個人情報リスト</caption>
+		<table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -25,9 +24,9 @@
 			</thead>
 			<tbody>
 				<tr th:each="person : ${persons}" th:object="${person}">
-					<td class="center" th:text="*{id}"></td>
+					<td　th:text="*{id}"></td>
 					<td th:text="*{name}"></td>
-					<td class="center" th:text="*{age}"></td>
+					<td　th:text="*{age}"></td>
 				</tr>
 			</tbody>
 		</table>
