@@ -2,16 +2,17 @@ package com.nota.controller;
 
 import java.util.List;
 
+import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.nota.entity.PersonalInfo;
 import com.nota.service.PersonalInfoService;
 
-@RestController
-@RequestMapping("/personal_info")
+@Controller
+@RequestMapping("personal_info")
 public class PersonalInfoController {
 	/**
 	 * 個人情報 Service
@@ -25,9 +26,11 @@ public class PersonalInfoController {
 	 * @param model Model
 	 * @return 個人情報一覧画面
 	 */
-	@RequestMapping(value = "", method = RequestMethod.GET)
-	public List<PersonalInfo> index() {
-		return personalInfoService.findAll();
+	@RequestMapping(method = RequestMethod.GET)
+	public String index(Model model) {
+		List<PersonalInfo> personalInfo = personalInfoService.findAll();
+        model.addAttribute("persons", personalInfo); 
+        return "personal_info/list";
 	}
 
 }

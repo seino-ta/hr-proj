@@ -1,0 +1,21 @@
+<head xmlns:th="http://www.thymeleaf.org" th:fragment="head_fragment(title, scripts, links)">
+  <meta charset="UTF-8">
+  <title th:text="${title}"></title>
+  <!-- 全画面共通のcssを定義します -->
+  <link rel="stylesheet" type="text/css" th:href="@{/uikit-3.6.22/css/uikit.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/uikit-3.6.22/css/uikit.min.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/uikit-3.6.22/css/uikit-rtl.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/uikit-3.6.22/css/uikit-rtl.min.css}"/>
+
+  <!-- 各画面専用のcssを定義します -->
+  <th:block th:replace="${links}" />
+
+  <!-- 全画面共通のjavascriptを定義します -->
+  <script type="text/javascript" th:src="@{/uikit-3.6.22/js/uikit.js}"></script>
+  <script type="text/javascript" th:src="@{/uikit-3.6.22/js/uikit.min.js}"></script>
+  <script type="text/javascript" th:src="@{/uikit-3.6.22/js/uikit-icons.js}"></script>
+  <script type="text/javascript" th:src="@{/uikit-3.6.22/js/uikit-icons.min.js}"></script>
+
+  <!-- 各画面専用のjavascriptを定義します -->
+  <th:block th:replace="${scripts}" />
+</head>
